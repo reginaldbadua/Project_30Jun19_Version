@@ -1,0 +1,52 @@
+{% extends "views/layout.html" %}
+
+
+
+{% block content %}
+<h1 class="text-center">Tank Configuration</h1>
+
+<table id="tblCatalog" class="table table-bordered table-stripped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>tank_type</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+
+    <tbody>
+         {% for movie in catalog %}
+             <tr> 
+                <td>{{ movie.id }}</td>
+                <td> <a href="/movies/detail/{{movie.id}}">{{ movie.title }}</a> </td>
+                <td>{{ movie.release_year}}</td>
+                <td>{{ movie.stock }}</td>
+                <td>$ {{ movie.price }}</td>
+                <td> <button movie-id="{{ movie.id}}" class="btn btn-sm btn-info btn-add"> Add to Cart </button> </td>
+             </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+<div class="row">
+    <div class="col-md-4 offset 4">
+        <label>Items in cart:</label>
+        <input type="text" id="txtNumerItems">
+        <br>
+
+        <label>Total:</label>
+        <input type="text" id="txtTotal">
+        <br>
+
+        <button id="btnSave" class = "btn btn-primary">Register Order</button>
+
+    </div>
+</div>
+
+{% comment %} <script> src="script/order.js"<script> {% endcomment %}
+
+{% endblock %}

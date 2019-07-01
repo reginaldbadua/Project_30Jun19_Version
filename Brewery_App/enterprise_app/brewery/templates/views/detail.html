@@ -1,0 +1,25 @@
+{% extends "views/layout.html" %}
+
+
+{% block content %}
+
+    <style>
+        h5{
+            display:inline;            
+        }
+    </style>
+
+    <ul class="list-group">
+        <li class="list-group-item"><h5>Id:</h5>  {{ movie.id }}</li> 
+        <li class="list-group-item"><h5>Title:</h5>  {{ movie.title }}</li> 
+        <li class="list-group-item"><h5>Stock:</h5>  {{ movie.stock }}</li> 
+        <li class="list-group-item"><h5>Price:</h5> $ {{ movie.price }}</li> 
+        <li class="list-group-item"><h5>Genre:</h5>  {{ movie.genre }}</li> 
+        <li class="list-group-item"><h5>Director:</h5>  {{ movie.director }}</li> 
+    </ul>
+    <br><br>
+    <button class="btn btn-sm btn-primary">Add new tank</button>
+    <button class="btn btn-sm btn-danger">Delete tank</button>
+
+{% endblock  %}
+

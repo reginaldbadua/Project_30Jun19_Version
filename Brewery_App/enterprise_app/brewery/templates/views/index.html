@@ -1,0 +1,35 @@
+{% extends "views/layout.html" %}
+
+
+
+{% block content %}
+<h1 class="text-center">tank_types Catalog</h1>
+
+<table class="table table-bordered table-stripped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Tank Type</th>
+            <th>Volume</th>
+            <th>Temperature</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+
+    <tbody>
+         {% for tank_type in configuration %}
+             <tr> 
+                <td>{{ tank_type.tank_type }}</td>
+                <td> <a href="/tank_types/detail/{{tank_type.id}}">{{ tank_type.title }}</a> </td>
+                <td>{{ tank_type.release_year}}</td>
+                <td>{{ tank_type.stock }}</td>
+                <td>$ {{ tank_type.price }}</td>
+                <td> <button tank_type-id="{{ tank_type.id}}" class="btn btn-sm btn-info btn-add"> Add to Cart </button> </td>
+             </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% comment %} <script> src="script/order.js"<script> {% endcomment %}
+
+{% endblock %}
